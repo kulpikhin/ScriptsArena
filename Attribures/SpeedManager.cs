@@ -6,6 +6,8 @@ public class SpeedManager : MonoBehaviour
     private StatManager statManager;
     private List<float> speedModifiers = new List<float>();
 
+    public float CurrentSpeed { get; private set; }
+
     void Start()
     {
         statManager = GetComponent<StatManager>();
@@ -39,8 +41,6 @@ public class SpeedManager : MonoBehaviour
             totalModifier *= modifier;  // Множим все временные модификаторы
         }
 
-        float currentSpeed = baseSpeed * totalModifier;
-        currentSpeed = Mathf.Max(currentSpeed, 0.1f);  // Минимальная скорость
-        Debug.Log("Updated speed: " + currentSpeed);
+        CurrentSpeed = Mathf.Max(baseSpeed * totalModifier, 0.1f);  // Минимальная скорость
     }
 }
