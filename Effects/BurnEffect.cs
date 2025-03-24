@@ -9,7 +9,7 @@ public class BurnEffect : Effect
         if (character != null)
         {
             int damage = potency/2; // Урон от поджога
-            character.HealthCharacter.TakeDamage(damage);
+            character.statManager.HealthCharacter.TakeDamage(damage);
             Debug.Log(target.name + " takes " + damage + " fire damage from Burn.");
         }
     }

@@ -9,7 +9,7 @@ public class PoisonEffect : Effect
         if (character != null)
         {
             int damage = potency; // Урон от яда
-            character.HealthCharacter.TakeDamage(damage);
+            character.statManager.HealthCharacter.TakeDamage(damage);
             Debug.Log(target.name + " takes " + damage + " poison damage.");
         }
     }

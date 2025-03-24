@@ -3,14 +3,21 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    private SubClass characterSubClass;
-    private StatManager statManager;
+    public SubClass characterSubClass;
+    public StatManager statManager;
 
-    void Start()
+    public bool isDead { get; private set; }
+
+    private void Start()
     {
-        if (statManager == null)
+        statManager = GetComponent<StatManager>();
+    }
+
+    private void CheckDeath(int health)
+    {
+        if (health <= 0)
         {
-            statManager = GetComponent<StatManager>();
+            isDead = true;
         }
     }
 }

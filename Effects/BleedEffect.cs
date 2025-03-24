@@ -9,7 +9,7 @@ public class BleedEffect : Effect
         if (character != null)
         {
             int damage = potency * 2; // Урон от кровотечения
-            character.HealthCharacter.TakeDamage(damage);
+            character.statManager.HealthCharacter.TakeDamage(damage);
             Debug.Log(target.name + " takes " + damage + " bleed damage.");
         }
     }

@@ -43,11 +43,11 @@ public class CharacterAbilities : MonoBehaviour
 
         if (abilityCooldowns[index] <= 0)
         {
-            if (abilities[index].manaCost <= character.ManaCharacter.CurrentMana)
+            if (abilities[index].manaCost <= character.statManager.ManaCharacter.CurrentMana)
             {
                 abilities[index].Activate(target);
                 abilityCooldowns[index] = abilities[index].cooldown;
-                character.ManaCharacter.SpentMana((int)abilities[index].manaCost);
+                character.statManager.ManaCharacter.SpentMana((int)abilities[index].manaCost);
 
                 if (cooldownCoroutines[index] != null)
                 {
